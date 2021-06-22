@@ -1,25 +1,19 @@
-
-//  module.exports = function(){
-//     const fs = require('fs');
-
-
-//     fs.readdir('./', 'utf8', (err, files) => {
-//     if(err) {
-//       throw err;
-//     } else{
-//        process.stdout.write(files.join('\n'))
-//         process.stdout.write('\nprompt > ');
-//     }
-//         })
-
-//       }
-
-module.exports = (done) => {
+module.exports = function(done) {
+  const fs = require('fs');
   fs.readdir('./', 'utf8', (err, files) => {
-        if(err) {
-          done('Something went wrong!');
-        } else{
-          done(files.join('\n'))
-        }
-    })
+    if (err) {
+      throw err;
+    }
+    done(files.join('\n'));
+  });
 }
+
+// module.exports = (done) => {
+//   fs.readdir('./', 'utf8', (err, files) => {
+//         if(err) {
+//           done('Something went wrong!');
+//         } else{
+//           done(files.join('\n'))
+//         }
+//     })
+// }
